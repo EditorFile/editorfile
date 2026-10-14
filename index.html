@@ -569,7 +569,7 @@ if(r){
         sec.className="seo-content";
         var c=(window.__SEOCONTENT&&window.__SEOCONTENT[r.t])||("<p>"+r.d.replace(/</g,"&lt;")+"</p>");
         sec.innerHTML=c;
-        (function(){var toolsEl=document.querySelector(".tools");if(toolsEl){toolsEl.insertAdjacentElement("afterend",sec);}else{h1.insertAdjacentElement("afterend",sec);}})();
+        h1.insertAdjacentElement("afterend",sec);
       }
     }
     if(!r.page){(function tryOpen(attempt){var b=document.querySelector('[data-tool="'+r.t+'"]');if(b){b.click();setTimeout(function(){var opened=false;try{var o=document.getElementById("overlay");if(o&&o.classList.contains("open"))opened=true;var es=document.getElementById("editorShell");if(es&&(es.classList.contains("open")||es.getAttribute("aria-hidden")==="false"))opened=true;var cs=document.getElementById("compareShell");if(cs&&cs.classList.contains("open"))opened=true;var rs=document.getElementById("redactShell");if(rs&&rs.classList.contains("open"))opened=true}catch(e){}if(!opened&&attempt<3)setTimeout(function(){tryOpen(attempt+1)},400)},600)}else if(attempt<3){setTimeout(function(){tryOpen(attempt+1)},400)}})(0)}
