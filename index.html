@@ -1169,8 +1169,8 @@ async function te_verify(PDFJS,bytes,applied){
 
 
 H.addEventListener("click",async function(){if(K){H.disabled=!0,H.textContent="Saving…",ae();try{if(!window.PDFLib||!window.PDFLib.PDFDocument)throw new Error("The PDF engine could not load. Check your connection and try again.");var _PL=window.PDFLib;
-var _scriptFontCache=null;async function _getScriptFont(t){if(_scriptFontCache)return _scriptFontCache;try{var r=await fetch('fonts/GreatVibes-Regular.ttf');if(!r.ok)return null;var b=await r.arrayBuffer();_scriptFontCache=await t.embedFont(b);return _scriptFontCache;}catch(e){return null;}}async function _doSave(_useTE){
-var t=await _PL.PDFDocument.load(K.slice()),_sf=null;try{_sf=await _getScriptFont(t);}catch(e){},n=await t.embedFont('Helvetica'),a=await t.embedFont('Helvetica-Bold'),i=await t.embedFont('Helvetica-Oblique'),o=await t.embedFont('Helvetica-BoldOblique'),d=await t.embedFont('Times-Italic'),TF=await t.embedFont('Times-Roman'),TFB=await t.embedFont('Times-Bold'),TFBI=await t.embedFont('Times-BoldItalic'),CF=await t.embedFont('Courier'),CFB=await t.embedFont('Courier-Bold'),CFI=await t.embedFont('Courier-Oblique'),CFBI=await t.embedFont('Courier-BoldOblique'),r=t.getPages();try{var l=t.getForm();ee.forEach(function(e){var t=l.getField(e.name),n=Z[e.name];e.type.indexOf("CheckBox")>-1?"true"===n?t.check():t.uncheck():e.type.indexOf("Dropdown")>-1||e.type.indexOf("OptionList")>-1||e.type.indexOf("RadioGroup")>-1?n&&t.select(n):t.setText&&t.setText(n||"")}),ee.length&&l.updateFieldAppearances(n)}catch(e){}
+async function _doSave(_useTE){
+var t=await _PL.PDFDocument.load(K.slice()),n=await t.embedFont('Helvetica'),a=await t.embedFont('Helvetica-Bold'),i=await t.embedFont('Helvetica-Oblique'),o=await t.embedFont('Helvetica-BoldOblique'),d=await t.embedFont('Times-Italic'),TF=await t.embedFont('Times-Roman'),TFB=await t.embedFont('Times-Bold'),TFBI=await t.embedFont('Times-BoldItalic'),CF=await t.embedFont('Courier'),CFB=await t.embedFont('Courier-Bold'),CFI=await t.embedFont('Courier-Oblique'),CFBI=await t.embedFont('Courier-BoldOblique'),r=t.getPages();try{var l=t.getForm();ee.forEach(function(e){var t=l.getField(e.name),n=Z[e.name];e.type.indexOf("CheckBox")>-1?"true"===n?t.check():t.uncheck():e.type.indexOf("Dropdown")>-1||e.type.indexOf("OptionList")>-1||e.type.indexOf("RadioGroup")>-1?n&&t.select(n):t.setText&&t.setText(n||"")}),ee.length&&l.updateFieldAppearances(n)}catch(e){}
 var _teR={applied:new Map(),pathB:[]};
 if(_useTE){try{_teR=await te_applyTrueEdit(_PL,t,_);}catch(_teE){_teR={applied:new Map(),pathB:[]};}}
 var _tePB={};_teR.pathB.forEach(function(b){_tePB[b.id]=b;});
@@ -1182,7 +1182,7 @@ for(var c=0;c<_.length;c++){var s=_[c],u=r[s.page-1],h=u.getSize(),m=s.x*h.width
   var _isScript=/script|handwrit|calligraph|cursive|brush|pacifico|dancing|allura|greatvibes|alexbrush|segoescript|lucidahandwriting|kunstler|edwardian|snell|zapfchancery|coronet|monotypecorsiva/.test(_ofn);
   var _pbf;
   if(_isMono){_pbf=s.bold&&s.italic?CFBI:s.bold?CFB:s.italic?CFI:CF;}
-  else if(_isScript){_pbf=_sf||TFBI;}
+  else if(_isScript){_pbf=TFBI;}
   else if(_isSerif){_pbf=s.bold&&s.italic?TFBI:s.bold?TFB:s.italic?d:TF;}
   else{_pbf=s.bold&&s.italic?o:s.bold?a:s.italic?i:n;}
   // Width-based scaling: shrink font if replacement text is wider than original
